@@ -1,19 +1,16 @@
 package com.amigoscode;
 
-import com.amigoscode.customer.Customer;
 import com.amigoscode.customer.CustomerRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.List;
-
 @SpringBootApplication
-public class SpringBootExampleApplication {
+public class Main {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootExampleApplication.class, args);
+        SpringApplication.run(Main.class, args);
     }
 
     @Bean
