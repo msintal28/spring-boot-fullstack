@@ -102,6 +102,7 @@ jobs:
           --data '{"text":"Deployment and commit completed :git-approved: :party_blob:  - Amigoscode-api-env-1.eba-63yrvtzx.eu-central-1.elasticbeanstalk.com"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Send job status to Slack
+        if: always()
         run: >
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":"Job Status ${{ job.status }}"}' 
