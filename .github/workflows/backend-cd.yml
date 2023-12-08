@@ -34,7 +34,7 @@ jobs:
       - name: Send deployment started message to Slack
         run: >
           curl -X POST -H 'Content-type: application/json' 
-          --data '{"text":"Deployment started :progress_bar: :fingerscrossed:"}' 
+          --data '{"text":"Deployment started :progress_bar:"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - uses: actions/setup-java@v4
         with:
@@ -99,7 +99,7 @@ jobs:
       - name: Send deployment complete message to Slack
         run: >
           curl -X POST -H 'Content-type: application/json' 
-          --data '{"text":"Deployment and commit completed :git-approved: :party_blob:  - Amigoscode-api-env-1.eba-63yrvtzx.eu-central-1.elasticbeanstalk.com"}' 
+          --data '{"text":"Deployment and commit completed :git-approved: :party_blob: :party_blob: :party_blob: - Amigoscode-api-env-1.eba-63yrvtzx.eu-central-1.elasticbeanstalk.com"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Send job status to Slack
         if: always()
