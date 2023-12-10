@@ -1,16 +1,15 @@
 package com.amigoscode.customer;
 
 import com.amigoscode.AbstractTestContainer;
+import com.amigoscode.model.Gender;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerJDBCDataAccessServiceTest extends AbstractTestContainer {
 
@@ -32,7 +31,8 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestContainer {
         Customer customer = new Customer(
                 "TestName",
                 UUID.randomUUID() + MAIL,
-                15
+                15,
+                Gender.FEMALE
         );
         underTest.insertCustomer(customer);
 
@@ -50,7 +50,8 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestContainer {
         Customer customer = new Customer(
                 "TestName",
                 email,
-                15
+                15,
+                Gender.FEMALE
         );
         underTest.insertCustomer(customer);
         Long id = underTest.selectAllCustomers()
@@ -100,7 +101,8 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestContainer {
         Customer customer = new Customer(
                 "TestName",
                 email,
-                15
+                15,
+                Gender.FEMALE
         );
         underTest.insertCustomer(customer);
 

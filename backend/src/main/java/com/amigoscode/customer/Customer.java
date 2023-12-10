@@ -1,8 +1,8 @@
 package com.amigoscode.customer;
 
+import com.amigoscode.model.Gender;
 import jakarta.persistence.*;
 
-import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
@@ -41,21 +41,28 @@ public class Customer {
             nullable = false
     )
     private Integer age;
+    @Column(
+            nullable = false
+    )
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     public Customer() {
     }
 
-    public Customer(Long id, String name, String email, Integer age) {
+    public Customer(Long id, String name, String email, Integer age, Gender gender) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.age = age;
+        this.gender = gender;
     }
 
-    public Customer(String name, String email, Integer age) {
+    public Customer(String name, String email, Integer age, Gender gender) {
         this.name = name;
         this.email = email;
         this.age = age;
+        this.gender = gender;
     }
 
     public Long getId() {
@@ -88,6 +95,14 @@ public class Customer {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     @Override

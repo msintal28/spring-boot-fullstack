@@ -1,17 +1,16 @@
 package com.amigoscode.customer;
 
 import com.amigoscode.AbstractTestContainer;
+import com.amigoscode.model.Gender;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -38,7 +37,8 @@ class CustomerRepositoryTest extends AbstractTestContainer {
         Customer customer = new Customer(
                 "TestName",
                 email,
-                15
+                15,
+                Gender.FEMALE
         );
         underTest.save(customer);
         Long id = underTest.findAll()

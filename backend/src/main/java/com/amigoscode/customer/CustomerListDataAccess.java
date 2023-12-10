@@ -1,10 +1,14 @@
 package com.amigoscode.customer;
 
+import com.amigoscode.model.Gender;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static com.amigoscode.model.Gender.FEMALE;
+import static com.amigoscode.model.Gender.MALE;
 
 @Repository("list")
 public class CustomerListDataAccess implements CustomerDao {
@@ -19,7 +23,8 @@ public class CustomerListDataAccess implements CustomerDao {
                 1L,
                 "Alex",
                 "alex@gmail.com",
-                21
+                21,
+                MALE
         );
         customers.add(alex);
 
@@ -27,7 +32,8 @@ public class CustomerListDataAccess implements CustomerDao {
                2L,
                 "Jamila",
                 "jamila@gmail.com",
-                19
+                19,
+                FEMALE
         );
         customers.add(jamila);
     }

@@ -1,5 +1,6 @@
 package com.amigoscode.customer;
 
+import com.amigoscode.model.Gender;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,8 +9,6 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 class CustomerJPADataAccessServiceTest {
@@ -57,7 +56,8 @@ class CustomerJPADataAccessServiceTest {
                 1L,
                 "name",
                 "email",
-                15
+                15,
+                Gender.MALE
         );
 
 
