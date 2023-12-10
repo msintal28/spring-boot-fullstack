@@ -23,7 +23,6 @@ public class Main {
                     21
             );
             customerRepository.save(alex);
-
              */
         };
     }
