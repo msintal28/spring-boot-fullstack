@@ -50,7 +50,6 @@ function App() {
                     <WrapItem key={index}>
                         <CardWithImage
                             {...customer}
-                            gender={"women"}
                             imageNumber={index}
                         />
                     </WrapItem>

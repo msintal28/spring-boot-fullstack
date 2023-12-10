@@ -33,7 +33,7 @@ export default function CardWithImage({id, name, email, age, gender, imageNumber
                     <Avatar
                         size={'xl'}
                         src={
-                            `https://randomuser.me/api/portraits/${gender}/${imageNumber}.jpg`
+                            `https://randomuser.me/api/portraits/${gender === "FEMALE" ? "women" : "men"}/${imageNumber}.jpg`
                         }
                         alt={'Author'}
                         css={{
@@ -49,7 +49,7 @@ export default function CardWithImage({id, name, email, age, gender, imageNumber
                             name: {name}
                         </Heading>
                         <Text color={'gray.500'}>email: {email}</Text>
-                        <Text color={'gray.500'}>Age: {age}</Text>
+                        <Text color={'gray.500'}>Age: {age} | Gender: {gender}</Text>
                     </Stack>
                 </Box>
             </Box>
