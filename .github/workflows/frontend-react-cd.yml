@@ -26,6 +26,11 @@ jobs:
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":"Deployment started :progress_bar:"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
       - name: Set build number
         id: build-number
         run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
@@ -46,4 +51,10 @@ jobs:
         run: >
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":":docker: Image tag: ${{ steps.build-number.outputs.BUILD_NUMBER }} pushed to https://hub.docker.com/repository/docker/msintal28/amigoscode-react"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Send job status to Slack
+        if: always()
+        run: >
+          curl -X POST -H 'Content-type: application/json' 
+          --data '{"text":"Job Status ${{ job.status }}"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
