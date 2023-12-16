@@ -26,8 +26,10 @@ import UpdateDrawerForm from "./UpdateDrawerForm.jsx";
 
 
 export default function CardWithImage({id, name, email, age, gender, imageNumber, fetchCustomers}) {
+
     const {isOpen, onOpen, onClose} = useDisclosure()
     const cancelRef = useRef()
+
     return (
         <Center py={6}>
             <Box

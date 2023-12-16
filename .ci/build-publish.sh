@@ -11,3 +11,7 @@ docker buildx build \
     "${@:2}" \
     --push \
     "$1"
+
+echo "echoing first argument as the dot"
+
+echo $1
