@@ -56,7 +56,7 @@ class CustomerJPADataAccessServiceTest {
                 1L,
                 "name",
                 "email",
-                15,
+                "password", 15,
                 Gender.MALE
         );
 

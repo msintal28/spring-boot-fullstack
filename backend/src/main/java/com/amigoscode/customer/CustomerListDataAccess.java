@@ -1,6 +1,5 @@
 package com.amigoscode.customer;
 
-import com.amigoscode.model.Gender;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -23,6 +22,7 @@ public class CustomerListDataAccess implements CustomerDao {
                 1L,
                 "Alex",
                 "alex@gmail.com",
+                "password",
                 21,
                 MALE
         );
@@ -32,6 +32,7 @@ public class CustomerListDataAccess implements CustomerDao {
                2L,
                 "Jamila",
                 "jamila@gmail.com",
+                "password",
                 19,
                 FEMALE
         );
@@ -74,5 +75,12 @@ public class CustomerListDataAccess implements CustomerDao {
     @Override
     public void updateCustomer(Customer update) {
 
+    }
+
+    @Override
+    public Optional<Customer> selectUserByEmail(String email) {
+        return customers.stream()
+                .filter(c -> c.getUsername().equals(email))
+                .findFirst();
     }
 }

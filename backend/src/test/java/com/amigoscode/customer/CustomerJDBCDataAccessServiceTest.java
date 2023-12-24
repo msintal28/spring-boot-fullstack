@@ -31,7 +31,7 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestContainer {
         Customer customer = new Customer(
                 "TestName",
                 UUID.randomUUID() + MAIL,
-                15,
+                "password", 15,
                 Gender.FEMALE
         );
         underTest.insertCustomer(customer);
@@ -50,7 +50,7 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestContainer {
         Customer customer = new Customer(
                 "TestName",
                 email,
-                15,
+                "password", 15,
                 Gender.FEMALE
         );
         underTest.insertCustomer(customer);
@@ -101,7 +101,7 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestContainer {
         Customer customer = new Customer(
                 "TestName",
                 email,
-                15,
+                "password", 15,
                 Gender.FEMALE
         );
         underTest.insertCustomer(customer);

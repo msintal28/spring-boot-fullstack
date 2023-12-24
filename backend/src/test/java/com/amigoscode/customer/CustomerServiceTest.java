@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -21,11 +21,14 @@ class CustomerServiceTest {
 
     @Mock
     CustomerDao dao;
+    @Mock
+    PasswordEncoder passwordEncoder;
     private CustomerService underTest;
+    private final CustomerDTOMapper customerDTOMapper = new CustomerDTOMapper();
 
     @BeforeEach
     void setUp() {
-        underTest = new CustomerService(dao);
+        underTest = new CustomerService(dao, passwordEncoder, customerDTOMapper);
     }
 
     @AfterEach
@@ -48,12 +51,14 @@ class CustomerServiceTest {
         Customer customer = new Customer();
         when(dao.selectCustomerById(customerId)).thenReturn(Optional.of(customer));
 
+        CustomerDTO expected = customerDTOMapper.apply(customer);
+
         //When
-        Customer actual = underTest.getCustomer(customerId);
+        CustomerDTO actual = underTest.getCustomer(customerId);
 
 
         //Then
-        assertThat(actual).isEqualTo(customer);
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test

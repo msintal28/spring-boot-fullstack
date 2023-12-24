@@ -1,5 +1,8 @@
 package com.amigoscode.customer;
 
+import com.amigoscode.jwt.JWTUtil;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,9 +12,11 @@ import java.util.List;
 public class CustomerController {
 
     private final CustomerService customerService;
+    private final JWTUtil jwtUtil;
 
-    public CustomerController(CustomerService customerService) {
+    public CustomerController(CustomerService customerService, JWTUtil jwtUtil) {
         this.customerService = customerService;
+        this.jwtUtil = jwtUtil;
     }
 
     /*
@@ -20,19 +25,23 @@ public class CustomerController {
            method = RequestMethod.GET
    )*/
     @GetMapping
-    public List<Customer> getCustomers() {
+    public List<CustomerDTO> getCustomers() {
         return customerService.getAllCustomers();
     }
 
     @GetMapping("{customerId}")
-    public Customer getCustomer(
+    public CustomerDTO getCustomer(
             @PathVariable("customerId") Integer customerId) {
         return customerService.getCustomer(customerId);
     }
 
     @PostMapping
-    public void postCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest){
+    public ResponseEntity<?> registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest) {
         customerService.addCustomer(customerRegistrationRequest);
+        String jwtToken = jwtUtil.issueToken(customerRegistrationRequest.email(), "ROLE_USER");
+        return ResponseEntity.ok()
+                .header(HttpHeaders.AUTHORIZATION, jwtToken)
+                .build();
     }
 
     @DeleteMapping("{customerId}")

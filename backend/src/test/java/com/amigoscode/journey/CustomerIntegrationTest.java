@@ -40,7 +40,7 @@ public class CustomerIntegrationTest {
         CustomerRegistrationRequest customerRegistrationRequest = new CustomerRegistrationRequest(
                 fullName,
                 email,
-                age,
+                "password", age,
                 gender
         );
         //send post request
@@ -68,7 +68,7 @@ public class CustomerIntegrationTest {
         Customer expectedCustomer = new Customer(
                 fullName,
                 email,
-                age,
+                "password", age,
                 gender
         );
         assertThat(allCustomers)
@@ -106,7 +106,7 @@ public class CustomerIntegrationTest {
         CustomerRegistrationRequest customerRegistrationRequest = new CustomerRegistrationRequest(
                 fullName,
                 email,
-                age,
+                "password", age,
                 gender
         );
         //send post request
@@ -166,7 +166,7 @@ public class CustomerIntegrationTest {
         CustomerRegistrationRequest customerRegistrationRequest = new CustomerRegistrationRequest(
                 fullName,
                 email,
-                age,
+                "password", age,
                 gender
         );
         //send post request
@@ -205,7 +205,7 @@ public class CustomerIntegrationTest {
         CustomerRegistrationRequest toBeUpdatedCustomer = new CustomerRegistrationRequest(
                 updatedName,
                 updatedEmail,
-                updatedAge,
+                "password", updatedAge,
                 updatedGender
         );
 
@@ -224,7 +224,7 @@ public class CustomerIntegrationTest {
                 id,
                 updatedName,
                 updatedEmail,
-                updatedAge,
+                "password", updatedAge,
                 updatedGender
         );
         //get customer by id
