@@ -15,7 +15,7 @@
     },
     {
       "name": "amigoscode-api",
-      "image": "msintal28/amigoscode-api:25.12.2023.16.56.07",
+      "image": "msintal28/amigoscode-api:25.12.2023.17.37.34",
       "essential": true,
       "memory": 512,
       "portMappings": [
