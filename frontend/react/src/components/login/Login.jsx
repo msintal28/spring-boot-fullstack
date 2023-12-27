@@ -113,14 +113,16 @@ const Login = () => {
     return (
         <Stack minH={'100vh'} direction={{base: 'column', md: 'row'}}>
             <Flex p={8} flex={1} alignItems={'center'} justifyContent={'center'}>
-                <Stack w={'full'} maxW={'md'}>
+                <Stack spacing={4} w={'full'} maxW={'md'}>
                     <Image
                         src={"https://user-images.githubusercontent.com/40702606/210880158-e7d698c2-b19a-4057-b415-09f48a746753.png"}
-                        boxSize={"100px"}
+                        boxSize={"200px"}
                         alt={"amigoscodeLogo"}
+                        alignSelf={"center"}
                     />
                     <Heading fontSize={'2xl'} mb={15}>Sign in to your account</Heading>
                     <LoginForm/>
+                    <Link color={"blue.500"} href={"/signup"}>Dont have an account? Sign up.</Link>
                 </Stack>
             </Flex>
             <Flex
