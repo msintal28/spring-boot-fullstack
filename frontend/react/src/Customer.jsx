@@ -7,7 +7,7 @@ import DrawerForm from "./components/DrawerForm.jsx";
 import {failureNotification} from "./services/notification.js";
 
 
-function App() {
+function Customer() {
 
     const [customers, setCustomers] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -90,4 +90,4 @@ function App() {
 
 }
 
-export default App
+export default Customer

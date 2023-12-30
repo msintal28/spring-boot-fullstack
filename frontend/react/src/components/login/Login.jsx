@@ -63,7 +63,7 @@ const LoginForm = () => {
             onSubmit={(values, {setSubmitting}) => {
                 setSubmitting(true)
                 login(values).then(res => {
-                    navigate("dashboard")
+                    navigate("dashboard/customers")
                     console.log("successfully logged in")
                 }).catch(err => {
                     failureNotification(err.code, err.response.data.message)
@@ -107,7 +107,7 @@ const Login = () => {
 
     useEffect(() =>{
         if (customer) {
-            navigate("/dashboard")
+            navigate("/dashboard/customers")
         }
     })
     return (

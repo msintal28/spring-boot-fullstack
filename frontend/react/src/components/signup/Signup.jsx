@@ -12,7 +12,7 @@ const Signup = () =>{
 
     useEffect(() =>{
         if (customer) {
-            navigate("/dashboard")
+            navigate("/dashboard/customers")
         }
     })
     return (
@@ -30,7 +30,7 @@ const Signup = () =>{
                         onSuccess={(token) => {
                             localStorage.setItem("access_token", token);
                             setCustomerFromToken()
-                            navigate("/dashboard")
+                            navigate("/dashboard/customers")
                         }}
                     />
                     <Link color={"blue.500"} href={"/"}>Have an account? Log in.</Link>
