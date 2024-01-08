@@ -15,8 +15,10 @@ public class Main {
     }
 
     @Bean
-    CommandLineRunner runner(CustomerRepository customerRepository,
-                             S3Service s3Service) {
+    CommandLineRunner runner(
+//            CustomerRepository customerRepository,
+//                             S3Service s3Service
+    ) {
         return args -> {
             /*
             Customer alex = new Customer(
