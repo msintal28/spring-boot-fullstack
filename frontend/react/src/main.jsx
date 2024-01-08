@@ -10,6 +10,7 @@ import AuthProvider from "./components/context/AuthContext.jsx";
 import ProtectedRoute from "./components/shared/ProtectedRoute.jsx";
 import Signup from "./components/signup/Signup.jsx";
 import Home from "./Home.jsx";
+import Todos from "./components/todos/Todos.jsx";
 
 const router = createBrowserRouter(
     [
@@ -22,8 +23,16 @@ const router = createBrowserRouter(
             element: <Signup/>
         },
         {
+            path: "todos",
+            element: <ProtectedRoute><Todos/></ProtectedRoute>
+        },
+        {
             path: "dashboard",
             element: <ProtectedRoute><Home/></ProtectedRoute>
+        },
+        {
+            path: "settings",
+            element: <ProtectedRoute><h1>Settings soon</h1></ProtectedRoute>
         },
         {
             path: "dashboard/customers",

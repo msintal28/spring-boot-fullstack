@@ -1,6 +1,7 @@
 package com.amigoscode;
 
 import com.amigoscode.customer.CustomerRepository;
+import com.amigoscode.s3.S3Service;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +15,8 @@ public class Main {
     }
 
     @Bean
-    CommandLineRunner runner(CustomerRepository customerRepository) {
+    CommandLineRunner runner(CustomerRepository customerRepository,
+                             S3Service s3Service) {
         return args -> {
             /*
             Customer alex = new Customer(

@@ -19,7 +19,7 @@ import {
     useColorModeValue,
     useDisclosure,
     VStack,
-    Image
+    Image, Checkbox
 } from '@chakra-ui/react';
 
 import {
@@ -34,11 +34,13 @@ import {
     FiUsers
 } from 'react-icons/fi';
 import {useAuth} from "../context/AuthContext.jsx";
+import {BiCheckboxChecked} from "react-icons/bi";
 
 const LinkItems = [
     {name: 'Home', route: '/dashboard', icon: FiHome},
     {name: 'Customers', route: '/dashboard/customers', icon: FiUsers},
-    {name: 'Settings', route: '/dashboard/settings', icon: FiSettings},
+    {name: 'Settings', route: '/settings', icon: FiSettings},
+    {name: 'Todos', route: '/todos', icon: BiCheckboxChecked},
 ];
 
 export default function SidebarWithHeader({children}) {

@@ -23,6 +23,7 @@ import {useRef} from "react";
 import {successNotification} from "../services/notification.js";
 import {deleteCustomer} from "../services/client.js";
 import UpdateDrawerForm from "./UpdateDrawerForm.jsx";
+import UploadImageDrawerForm from "./UploadImageDrawerForm.jsx";
 
 
 export default function CardWithImage({id, name, email, age, gender, imageNumber, fetchCustomers}) {
@@ -71,6 +72,11 @@ export default function CardWithImage({id, name, email, age, gender, imageNumber
                         <Text color={'gray.500'}>Age: {age} | Gender: {gender}</Text>
                     </Stack>
                 </Box>
+                <Stack p={4}>
+                    <UploadImageDrawerForm
+                        id={id}
+                    />
+                </Stack>
                 <Stack direction={'row'} justify={'center'} spacing={6} p={4}>
                     <Stack>
                         <UpdateDrawerForm

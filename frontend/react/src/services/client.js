@@ -62,3 +62,15 @@ export const login = async (usernameAndPassword) => {
         throw e;
     }
 }
+
+export const uploadFile = async (formData, customerId) => {
+    try {
+        return await axios.post(
+            `${import.meta.env.VITE_API_BASE_URL}/api/v1/s3/${customerId}`,
+            formData,
+            getAuthConfig()
+        )
+    } catch (e) {
+        throw e;
+    }
+}

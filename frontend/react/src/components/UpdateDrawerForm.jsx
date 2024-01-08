@@ -9,8 +9,6 @@ import {
     useDisclosure
 } from "@chakra-ui/react";
 import UpdateCustomerFrom from "./UpdateCustomerForm.jsx";
-
-const AddIcon = () => "+"
 const CloseIcon = () => "x"
 const UpdateDrawerForm = ({ fetchCustomers, id, initialValues}) => {
     const {isOpen, onOpen, onClose} = useDisclosure()
